@@ -1,0 +1,19 @@
+[project]
+name = "flet-whisper"
+version = "0.1.0"
+description = "基于 Flet + Whisper 的桌面字幕工具：粘贴链接下载视频或选择本地文件，自动转录并生成 SRT 字幕（MLX / CUDA / CPU 自动加速）"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "flet>=0.85.3",
+    "stable-ts>=2.19.1",
+    "yt-dlp>=2026.6.9",
+    # MLX 后端仅在 Apple Silicon 安装；其它平台用 stable-ts 基础包（torch + whisper，支持 CUDA / CPU）
+    "mlx-whisper>=0.4 ; sys_platform == 'darwin' and platform_machine == 'arm64'",
+]
+
+[project.optional-dependencies]
+# NVIDIA 用户可选：uv sync --extra cuda 安装 faster-whisper（CTranslate2，CUDA 上最快），代码会自动探测使用
+cuda = [
+    "faster-whisper>=1.0 ; sys_platform != 'darwin'",
+]

@@ -1,0 +1,24 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# macOS
+.DS_Store
+
+# 个人 / 测试媒体与字幕文件（不纳入仓库）
+*.srt
+*.vtt
+*.ass
+*.mp4
+*.mov
+*.mkv
+*.mp3
+*.wav
+*.m4a
